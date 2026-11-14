@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>Mani uzdevumi</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="lietotne">
+    <header class="galvene">
+      <p class="virsraksta-atzime">IKDIENAS PLĀNOTĀJS</p>
+      <h1>Mani uzdevumi</h1>
+      <p class="apraksts">Pieraksti iecerēto un soli pa solim paveic to.</p>
+    </header>
+
+    <section class="panelis" aria-label="Uzdevumu saraksts">
+      <form class="pievienosana" id="task-form">
+        <label class="paslepts" for="task-input">Jauns uzdevums</label>
+        <input id="task-input" type="text" placeholder="Ko vēlies paveikt?" autocomplete="off">
+        <button id="add-btn" type="submit">Pievienot</button>
+      </form>
+
+      <div class="riki" aria-label="Saraksta filtri">
+        <div class="filtri" role="group" aria-label="Filtrēt uzdevumus">
+          <button class="filtrs aktīvs" type="button" data-filter="all" aria-pressed="true">Visi</button>
+          <button class="filtrs" type="button" data-filter="active" aria-pressed="false">Aktīvie</button>
+          <button class="filtrs" type="button" data-filter="completed" aria-pressed="false">Izpildītie</button>
+        </div>
+        <p id="counter" class="skaititajs" aria-live="polite">Atlikuši 0 uzdevumi</p>
+      </div>
+
+      <ul id="task-list" class="uzdevumu-saraksts" aria-live="polite"></ul>
+      <p class="padoms">Mazs solis uz priekšu arī ir progress.</p>
+    </section>
+    <footer>Viss sākas ar vienu atzīmi.</footer>
+  </main>
+</body>
+</html>
