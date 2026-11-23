@@ -45,6 +45,21 @@ function dzestUzdevumu(id) {
   atjaunotSaskarni();
 }
 
+// Atjauno statistikas skaitļus un izpildes progresa joslu.
+function renderStats() {
+  const total = uzdevumi.length;
+  const completed = uzdevumi.filter((uzdevums) => uzdevums.done).length;
+  const sodien = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  const overdue = uzdevumi.filter((uzdevums) => !uzdevums.done && uzdevums.due && uzdevums.due < sodien).length;
+  const percent = total ? Math.round((completed / total) * 100) : 0;
+  document.querySelector('#stats-total').textContent = total;
+  document.querySelector('#stats-completed').textContent = completed;
+  document.querySelector('#stats-overdue').textContent = overdue;
+  document.querySelector('#stats-percent').textContent = `${percent}%`;
+  document.querySelector('#stats-progress').setAttribute('aria-valuenow', String(percent));
+  document.querySelector('#stats-progress-fill').style.width = `${percent}%`;
+}
+
 // Izveido viena uzdevuma HTML elementu, izmantojot drošu teksta ievietošanu.
 function izveidotUzdevumaElementu(uzdevums) {
   const elements = document.createElement('li');
@@ -81,6 +96,7 @@ function attēlotUzdevumus() {
   }
   const atlikusi = uzdevumi.filter((uzdevums) => !uzdevums.done).length;
   skaititajs.textContent = `Atlikuši ${atlikusi} ${atlikusi === 1 ? 'uzdevums' : 'uzdevumi'}`;
+  renderStats();
 }
 
 // Saglabā izmaiņas un atjauno redzamo sarakstu.

@@ -23,6 +23,33 @@
         <button id="add-btn" type="submit">Pievienot</button>
       </form>
 
+      <section class="statistika" aria-labelledby="statistikas-virsraksts">
+        <h2 id="statistikas-virsraksts"><span aria-hidden="true">▮▮▮</span> Statistika</h2>
+        <div class="statistikas-kartites">
+          <article class="statistikas-kartite statistikas-kopa">
+            <h3>Kopā</h3>
+            <p id="stats-total">0</p>
+          </article>
+          <article class="statistikas-kartite statistikas-izpilditi">
+            <h3>Izpildīti</h3>
+            <p id="stats-completed">0</p>
+          </article>
+          <article class="statistikas-kartite statistikas-nokaveti">
+            <h3>Nokavēti</h3>
+            <p id="stats-overdue">0</p>
+          </article>
+        </div>
+        <div class="statistikas-progress">
+          <div class="statistikas-progress-teksts">
+            <span>Izpildes progress</span>
+            <span id="stats-percent">0%</span>
+          </div>
+          <div id="stats-progress" class="statistikas-progress-sliede" role="progressbar" aria-label="Izpildes progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <span id="stats-progress-fill"></span>
+          </div>
+        </div>
+      </section>
+
       <div class="riki" aria-label="Saraksta filtri">
         <div class="filtri" role="group" aria-label="Filtrēt uzdevumus">
           <button class="filtrs aktīvs" type="button" data-filter="all" aria-pressed="true">Visi</button>
